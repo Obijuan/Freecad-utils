@@ -1,0 +1,7 @@
+print("Spere 1 example!!!!")
+
+#-- Sphere of radius = 10
+s = Part.makeSphere(10)
+Part.show(s)
+
+

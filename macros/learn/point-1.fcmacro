@@ -1,0 +1,15 @@
+print("Point 1 example!!!!")
+
+#-- Place some points in the x axis
+for i in range(30):
+	point(i * 2, 0, 0)
+
+
+#-- Place a point
+def point(x,y,z):
+	p = Part.makeSphere(0.5)
+	p.Placement.Base.x = x
+	p.Placement.Base.y = y
+	p.Placement.Base.z = z
+	Part.show(p)
+

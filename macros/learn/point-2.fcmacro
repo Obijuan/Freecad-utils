@@ -1,0 +1,17 @@
+import math
+
+print("Point 2 example!!!!")
+
+N = 30
+for i in range(N):
+	point(i * 2, 10 * math.sin(2 * math.pi * i / N), 0)
+
+
+#-- Place a point
+def point(x,y,z):
+	p = Part.makeSphere(0.5)
+	p.Placement.Base.x = x
+	p.Placement.Base.y = y
+	p.Placement.Base.z = z
+	Part.show(p)
+
