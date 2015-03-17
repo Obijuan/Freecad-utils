@@ -1,0 +1,61 @@
+import math
+
+
+def vector(x, y = None, z = None):
+
+	#-- Function overloading. x is mandatory
+	if y == None and z == None:
+		#-- the first argument is an App.Vector
+		v = x
+	else:
+		#-- The three components are given
+		v = App.Vector(x, y, z)
+		
+	#-- Start with a cilinder on the z axis
+	vectz = Part.makeCylinder(0.5, 10)
+	vref = App.Vector(0, 0, 1)
+	
+	#------ Orientate vectz on the v direction
+	#-- Calculate the rotation axis
+
+	if v == App.Vector(0.0, 0.0, -1.0):
+		#-- special case
+		raxis = App.Vector(1, 0, 0)
+	else:
+		raxis = vref.cross(v)
+	
+	#-- Calculate the rotation angle (in degrees)
+	angle = math.degrees(vref.getAngle(v))
+	
+	#-- Rotate vectz!
+	vectz.Placement.Rotation = App.Rotation(raxis, angle)
+	Part.show(vectz)
+
+#---- Main
+print("Vector example")
+
+o = App.Vector(0,0,0)
+x = App.Vector(1, 0, 0)
+y = App.Vector(0, 1, 0)
+z = App.Vector(0, 0, 1)
+mx = o - x
+my = o - y
+mz = o - z
+
+vector(x)
+vector(mx)
+vector(y)
+vector(my)
+vector(z)
+vector(mz)
+
+vector(x + y + z)
+vector(mx + y + z)
+vector(mx + my + z)
+vector(x + my + z)
+vector(x + y + mz)
+vector(mx + y + mz)
+vector(mx + my + mz)
+vector(x + my + mz)
+
+

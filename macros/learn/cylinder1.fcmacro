@@ -1,5 +1,6 @@
 print("cylinder-1-example!!!!")
 
+#-- Radius, height
 cyl = Part.makeCylinder(20, 3)
 Part.show(cyl)
 
